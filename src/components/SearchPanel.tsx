@@ -1,6 +1,5 @@
 import SearchType from "./SearchType";
 import TermType from "./TermType";
-import { useState } from "react";
 
 interface Props {
   onGoSearch: (input: string, type: string) => void;

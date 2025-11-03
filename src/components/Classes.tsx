@@ -12,6 +12,8 @@ function Classes({ data, sectionPara }: Props) {
   } catch (error) {}
   let singleClassData = [];
   let listofClasses = [];
+  let temp = sectionPara;
+  sectionPara = temp;
 
   for (let i = 0; i < data.length; i++) {
     if (currentClass != data[i][0]) {
@@ -25,8 +27,8 @@ function Classes({ data, sectionPara }: Props) {
   return (
     <>
       <div className="class list">
-        {listofClasses.map((item, index) => (
-          <SingleClass singleClassData={item} key={item[0]}></SingleClass>
+        {listofClasses.map((item) => (
+          <SingleClass singleClassData={[item]} key={item[0]}></SingleClass>
         ))}
       </div>
     </>

@@ -23,12 +23,12 @@ function App() {
   const retrieveGoSearch = (input: string, type: string) => {
     setInput(input);
     setType(type);
-    console.log("Apps retrieved input and search type");
     retrieveClassData();
   };
 
   //fetches data and stores it as 2D array
   async function retrieveClassData() {
+    console.log(input, type);
     //fetch data from server
     try {
       const response = await fetch("http://localhost:3000/");

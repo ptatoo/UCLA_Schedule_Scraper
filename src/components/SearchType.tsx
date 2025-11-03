@@ -1,5 +1,4 @@
 import { useState } from "react";
-import GoButton from "./GoButton";
 
 interface Props {
   onSelectItem: (item1: string, item2: string) => void;

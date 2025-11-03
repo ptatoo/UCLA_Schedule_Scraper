@@ -4,6 +4,8 @@ interface Props {
 }
 
 function SingleSection({ data, sectionPara }: Props) {
+  let temp = sectionPara;
+  sectionPara = temp;
   return <div>{data}</div>;
 }
 
