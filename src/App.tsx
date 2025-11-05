@@ -2,7 +2,9 @@ import SearchPanel from "./components/SearchPanel";
 import Classes from "./components/Classes";
 import { useState } from "react";
 
+//app function
 function App() {
+  //constants
   const [sectionData, setSectionData] = useState([]);
   const sectionPara = [
     "classId",
@@ -18,17 +20,18 @@ function App() {
     "instructors",
   ];
 
+  //initiate search function passed to child components
   const retrieveGoSearch = (input: string, type: string) => {
-    retrieveClassData(input, type);
+    console.log("input: ", input, "\ntype: ", type);
+    retrieveClassData("MATH");
   };
 
   //fetches data and stores it as 2D array
-  async function retrieveClassData(input: string, type: string) {
-    console.log("input: ", input, "\ntype: ", type);
+  async function retrieveClassData(classId: string) {
     //fetch data from server
     try {
       const response = await fetch(
-        "https://ucla-schedule-scraper.onrender.com/"
+        "https://ucla-schedule-scraper.onrender.com/" + classId
       );
       if (!response.ok) {
         throw new Error("HTTP error: ${response.status}");
