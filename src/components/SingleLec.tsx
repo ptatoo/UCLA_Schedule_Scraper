@@ -18,7 +18,7 @@ const SingleLec = ({ singleLecData, sectionPara }: Props) => {
           <button
             className={`${
               discussionsExist ? "block" : "hidden"
-            } text-center align-middle w-6 text- bg-blue-400 m-1 p-0`}
+            } text-center align-middle w-6 h-6 text- bg-blue-400 m-1 p-0`}
             onClick={() => setToggleDiscussions(!toggleDiscussions)}
           >
             v

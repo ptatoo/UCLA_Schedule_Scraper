@@ -37,7 +37,7 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
 
   return (
     <>
-      <div className="single class mx-5 my-3">
+      <div className="single class my-3">
         <button
           className="text-lg p-1.5 bg-blue-200 w-full hover:bg-blue-300"
           onClick={() => settoggleSection(!toggleSections)}
