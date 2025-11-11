@@ -438,15 +438,46 @@ const TextInput = ({ goSearch }: Props) => {
 
   return (
     <>
-      <div className="flex">
-        <div className="w-15 text-right mt-2 mr-2">Search:</div>
-        <Select
-          options={subjectOptions}
-          onChange={handleChange}
-          className="w-113"
-        />
+      <div className="flex flex-wrap gap-3 w-full">
+        <div className="flex">
+          <div className="w-10 h-8 text-right align-middle pt-1 mr-3">
+            Search:
+          </div>
+          <Select
+            options={subjectOptions}
+            onChange={handleChange}
+            className="w-113"
+            defaultValue={subjectOptions[0]}
+            styles={{
+              control: (baseStyles, ___) => ({
+                ...baseStyles,
+                background: "#fff",
+                borderColor: "#9e9e9e",
+                minHeight: "30px",
+                height: "30px",
+                alignContent: "center",
+                display: "flex",
+                marginRight: "9px",
+              }),
+              indicatorSeparator: () => ({
+                display: "none",
+              }),
+              option: (baseStyles, ___) => ({
+                ...baseStyles,
+                height: "25px",
+                paddingTop: "3px",
+                textAlign: "center",
+              }),
+              indicatorsContainer: (baseStyles, ___) => ({
+                ...baseStyles,
+                minWidth: "30px",
+                width: "30px",
+              }),
+            }}
+          />{" "}
+        </div>
         <button
-          className="bg-white p-1.5 ml-3 rounded border-gray-300 border w-10 hover:bg-gray-200 active:bg-gray-400"
+          className="bg-white p-1.5 rounded border-gray-300 border w-8 h-8 hover:bg-gray-200 active:bg-gray-400"
           onClick={goButtonClicked}
         >
           Go

@@ -49,7 +49,7 @@ const ServerStatus = () => {
             serverStat ? "hidden" : "block"
           } bg-red-500 w-28 text-center rounded text-white font-bold`}
         >
-          Server Down
+          Server Asleep
         </div>
       </div>
     </>
