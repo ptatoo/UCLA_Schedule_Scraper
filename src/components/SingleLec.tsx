@@ -4,8 +4,10 @@ import { useState } from "react";
 interface Props {
   singleLecData: string[][];
   sectionPara: string[];
+  sizeDistr: string[];
 }
-const SingleLec = ({ singleLecData, sectionPara }: Props) => {
+
+const SingleLec = ({ singleLecData, sectionPara, sizeDistr }: Props) => {
   const [toggleDiscussions, setToggleDiscussions] = useState(false);
   let discussionsExist = true;
   let discussions = singleLecData.slice(1);
@@ -28,13 +30,21 @@ const SingleLec = ({ singleLecData, sectionPara }: Props) => {
               discussionsExist ? "hidden" : "block"
             } text-center align-middle w-6 text- bg-white m-1 p-0`}
           ></div>
-          <SingleSection data={singleLecData[0]} sectionPara={sectionPara} />
+          <SingleSection
+            data={singleLecData[0]}
+            sectionPara={sectionPara}
+            sizeDistr={sizeDistr}
+          />
         </div>
         <div className="flex">
           <div className="w-8"></div>
           <div className={`${toggleDiscussions ? "block" : "hidden"} w-full`}>
             {discussions.map((item) => (
-              <SingleSection data={item} sectionPara={sectionPara} />
+              <SingleSection
+                data={item}
+                sectionPara={sectionPara}
+                sizeDistr={sizeDistr}
+              />
             ))}
           </div>
         </div>

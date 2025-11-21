@@ -1,4 +1,4 @@
-import Select, { type SingleValue } from "react-select";
+import Select from "react-select";
 
 interface OptionType {
   value: string;

@@ -5,8 +5,8 @@ import { useState } from "react";
 
 //app function
 function App() {
-  //constants
   const [sectionData, setSectionData] = useState([]);
+  const [searchPanelVisibility, setSearchPanelVisibility] = useState(true);
   const sectionPara = [
     "classId",
     "lec_dis",
@@ -50,7 +50,7 @@ function App() {
     //fetch data from server
     try {
       const response = await fetch(
-        "https://ucla-schedule-scraper-backend.onrender.com/get?filePath=" +
+        "https://ucla-schedule-scraper-backend.onrender.com/get?filePath=section_data/" +
           classId +
           ".csv"
       );
@@ -65,6 +65,8 @@ function App() {
           return sectionPara.map((key) => item[key]);
         });
         setSectionData(allSections);
+      } else {
+        setSectionData([]);
       }
       console.log(sectionData[0]);
     } catch (error) {
@@ -74,11 +76,19 @@ function App() {
 
   return (
     <div className="m-3">
-      <div className="font-serif">
-        <SearchPanel onGoSearch={retrieveGoSearch} />
-      </div>
-      <div>
-        <ServerStatus />
+      <button
+        className="fixed top-6 right-4 w-8 h-8 hover:bg-blue-200"
+        onClick={() => setSearchPanelVisibility(!searchPanelVisibility)}
+      >
+        V
+      </button>
+      <div className={`${searchPanelVisibility ? "block" : "hidden"}  `}>
+        <div className="font-serif">
+          <SearchPanel onGoSearch={retrieveGoSearch} />
+        </div>
+        <div>
+          <ServerStatus />
+        </div>
       </div>
       <div className="font-serif">
         <Classes data={sectionData} sectionPara={displayPara} />

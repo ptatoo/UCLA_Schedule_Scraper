@@ -10,15 +10,30 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
   let classId = singleClassData[0][0];
   let className = "";
   let firstDigit = true;
+  let detectedNonZero = false;
   const [toggleSections, settoggleSection] = useState(false);
+  const sizeDistr = [
+    "w-1/12",
+    "w-1/12",
+    "w-1/18",
+    "w-1/18",
+    "w-2/12",
+    "w-1/18",
+    "w-1/12",
+    "w-1/12",
+    "w-2/12",
+    "w-1/18",
+    "w-2/18",
+  ];
 
   //create class name from class id
   function isStringDigits(str: string) {
     return /^\d+$/.test(str);
   }
   for (let i = 0; i < classId.length; i++) {
-    if (classId.charAt(i) != "0") {
+    if (classId.charAt(i) != "0" || detectedNonZero) {
       if (isStringDigits(classId.charAt(i)) && firstDigit) {
+        detectedNonZero = true;
         firstDigit = false;
         className += " ";
       }
@@ -37,9 +52,9 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
 
   return (
     <>
-      <div className="single class my-3">
+      <div className="single class">
         <button
-          className="text-lg p-1.5 bg-blue-200 w-full hover:bg-blue-300"
+          className="text-lg px-1.5 w-full hover:bg-blue-300 border-b-2 border-blue-400"
           onClick={() => settoggleSection(!toggleSections)}
         >
           {className}
@@ -47,9 +62,11 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
 
         <div className={`${toggleSections ? "block" : "hidden"} flex`}>
           <div className="bg-gray-100 w-8"></div>
-          <div className="grid grid-cols-11 w-full text-xs bg-gray-100">
+          <div className="flex w-full text-xs bg-gray-100">
             {sectionPara.map((__, index) => (
-              <div className="p-1 border-white border text-center align-middle text-wrap">
+              <div
+                className={`${sizeDistr[index]} p-1 border-white border text-center align-middle text-wrap`}
+              >
                 {sectionPara[index]}
               </div>
             ))}
@@ -57,10 +74,16 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
         </div>
 
         <div
-          className={`${toggleSections ? "block" : "hidden"} text-xs w-full`}
+          className={`${toggleSections ? "block" : "hidden"}  ${
+            toggleSections ? "mb-3" : "mb-0"
+          } text-xs w-full`}
         >
           {classDataByLec.map((item) => (
-            <SingleLec singleLecData={item} sectionPara={sectionPara} />
+            <SingleLec
+              singleLecData={item}
+              sectionPara={sectionPara}
+              sizeDistr={sizeDistr}
+            />
           ))}
         </div>
       </div>
