@@ -2,6 +2,7 @@ import Classes from "./components/Classes";
 import SearchPanel from "./components/SearchPanel";
 import ServerStatus from "./components/ServerStatus";
 import { useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
 
 //app function
 function App() {
@@ -93,6 +94,14 @@ function App() {
       <div className="font-serif">
         <Classes data={sectionData} sectionPara={displayPara} />
       </div>
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          console.log(credentialResponse);
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+      />
     </div>
   );
 }
