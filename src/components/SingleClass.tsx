@@ -15,9 +15,9 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
   const sizeDistr = [
     "w-1/12",
     "w-1/12",
-    "w-1/18",
-    "w-1/18",
-    "w-2/12",
+    "w-1/12",
+    "w-1/12",
+    "w-1/9",
     "w-1/18",
     "w-1/12",
     "w-1/12",
@@ -51,18 +51,30 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
   }
 
   return (
-    <>
+    <div
+      className={`${
+        toggleSections ? " " : ""
+      } rounded-lg border border-gray-300`}
+    >
       <div className="single class">
+        {/* Class Name Button */}
         <button
-          className="text-lg px-1.5 w-full hover:bg-blue-300 border-b-2 border-blue-400"
+          className={`${
+            toggleSections ? " text-green-800" : " text-black"
+          } text-lg p-1.5 w-full  hover:bg-gray-300  hover:font-bold rounded-lg hover:text-green-800`}
           onClick={() => settoggleSection(!toggleSections)}
         >
           {className}
         </button>
 
-        <div className={`${toggleSections ? "block" : "hidden"} flex`}>
-          <div className="bg-gray-100 w-8"></div>
-          <div className="flex w-full text-xs bg-gray-100">
+        {/* Section Parameters */}
+        <div
+          className={`${
+            toggleSections ? "block" : "hidden"
+          } flex mx-3 border-b`}
+        >
+          <div className="w-8"></div>
+          <div className="flex w-full text-xs">
             {sectionPara.map((__, index) => (
               <div
                 className={`${sizeDistr[index]} p-1 border-white border text-center align-middle text-wrap`}
@@ -73,11 +85,8 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
           </div>
         </div>
 
-        <div
-          className={`${toggleSections ? "block" : "hidden"}  ${
-            toggleSections ? "mb-3" : "mb-0"
-          } text-xs w-full`}
-        >
+        {/* Section Data */}
+        <div className={`${toggleSections ? "block" : "hidden"} text-xs mx-3`}>
           {classDataByLec.map((item) => (
             <SingleLec
               singleLecData={item}
@@ -87,7 +96,7 @@ function SingleClass({ singleClassData, sectionPara }: Props) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

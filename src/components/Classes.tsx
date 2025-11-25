@@ -28,7 +28,7 @@ function Classes({ data, sectionPara }: Props) {
   listofClasses = listofClasses.splice(1);
   return (
     <>
-      <div className="class list">
+      <div className="class list gap-3 flex flex-col">
         {listofClasses.map((item) => (
           <SingleClass
             sectionPara={sectionPara}
