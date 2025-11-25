@@ -77,32 +77,16 @@ function SearchApp() {
   }
 
   return (
-    <div className="m-3">
-      {/* <button
-        className="fixed top-6 right-4 w-8 h-8 hover:bg-blue-200"
-        onClick={() => setSearchPanelVisibility(!searchPanelVisibility)}
-      >
-        V
-      </button> */}
+    <div className="mx-6 mt-3 bg-white rounded-lg shadow-md">
       <div className={`${searchPanelVisibility ? "block" : "hidden"}  `}>
-        <div className="font-serif">
-          <SearchPanel onGoSearch={retrieveGoSearch} />
-        </div>
+        <SearchPanel onGoSearch={retrieveGoSearch} />
         <div>
           <ServerStatus />
         </div>
       </div>
-      <div className="font-serif">
+      <div>
         <Classes data={sectionData} sectionPara={displayPara} />
       </div>
-      <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          console.log(credentialResponse);
-        }}
-        onError={() => {
-          console.log("Login Failed");
-        }}
-      />
     </div>
   );
 }

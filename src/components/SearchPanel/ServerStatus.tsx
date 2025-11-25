@@ -35,7 +35,7 @@ const ServerStatus = () => {
 
   return (
     <>
-      <div className="mb-5 p-1.5 bg-blue-50 w-full flex gap-3">
+      <div className="mb-5 p-3 w-full flex gap-3">
         <div
           className={`${
             serverStat == 0 ? "block" : "hidden"

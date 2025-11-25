@@ -45,6 +45,7 @@ const SearchType = ({ updateSearchType }: Props) => {
         <Select
           onChange={handleChange}
           options={options}
+          defaultValue={options[0]}
           styles={{
             control: (baseStyles, ___) => ({
               ...baseStyles,

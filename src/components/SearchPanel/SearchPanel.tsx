@@ -20,7 +20,7 @@ const SearchPanel = ({ onGoSearch }: Props) => {
 
   return (
     <>
-      <div className="mt-5 p-3 bg-blue-50 flex flex-wrap gap-3 flex-row w-full text-sm">
+      <div className="p-3 flex flex-wrap gap-3 flex-row w-full text-sm">
         <div className="min-w-40 w-40 pr-3 border-r">
           <TermType />
         </div>
@@ -28,7 +28,7 @@ const SearchPanel = ({ onGoSearch }: Props) => {
           <SearchType updateSearchType={updateSearchType} />
         </div>
       </div>
-      <div className="p-3 bg-blue-50 text-sm">
+      <div className="p-3 text-sm">
         <TextInput goSearch={retrieveGoSearch} />
       </div>
     </>

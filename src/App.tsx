@@ -6,7 +6,7 @@ import Home from "./Home";
 
 const App = () => {
   return (
-    <>
+    <div className="bg-gray-100 min-h-screen">
       <BrowserRouter>
         <Header />
 
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 };
 
