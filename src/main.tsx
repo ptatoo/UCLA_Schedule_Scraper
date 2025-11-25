@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./App.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Header from "./components/Heading";
 import SearchApp from "./SearchApp";
 import NotifApp from "./NotifApp";
@@ -16,6 +16,9 @@ root.render(
       <div className="bg-gray-100 min-h-screen">
         <BrowserRouter basename="/UCLA_Schedule_Scraper">
           <Header />
+          <NavLink to="/" />
+          <NavLink to="/search" />
+          <NavLink to="/notifications" />
 
           <Routes>
             <Route path="/" element={<Home />} />
