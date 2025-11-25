@@ -1,6 +1,6 @@
 import Classes from "./components/Classes";
-import SearchPanel from "./components/SearchPanel";
-import ServerStatus from "./components/ServerStatus";
+import SearchPanel from "./components/SearchPanel/SearchPanel";
+import ServerStatus from "./components/SearchPanel/ServerStatus";
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 
