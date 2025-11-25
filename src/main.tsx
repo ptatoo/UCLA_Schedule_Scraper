@@ -7,6 +7,7 @@ import Header from "./components/Heading";
 import SearchApp from "./SearchApp";
 import NotifApp from "./NotifApp";
 import Home from "./Home";
+import Test from "./components/test.tsx"
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
@@ -22,6 +23,7 @@ root.render(
             <Route path="/notifications" element={<NotifApp />} />
             <Route path="*" element={<p>Path not resolved</p>} />
           </Routes>
+          <Test/>
         </BrowserRouter>
       </div>
     </GoogleOAuthProvider>
