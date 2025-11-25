@@ -7,7 +7,7 @@ import { GoogleLogin } from "@react-oauth/google";
 //app function
 function SearchApp() {
   const [sectionData, setSectionData] = useState([]);
-  const [searchPanelVisibility, setSearchPanelVisibility] = useState(true);
+  const searchPanelVisibility = true;
   const sectionPara = [
     "classId",
     "lec_dis",
@@ -51,7 +51,8 @@ function SearchApp() {
     //fetch data from server
     try {
       const response = await fetch(
-        "https://ucla-schedule-scraper-backend.onrender.com/get?filePath=section_data/" +
+        import.meta.env.VITE_API_URL +
+          "/get?filePath=section_data/" +
           classId +
           ".csv"
       );

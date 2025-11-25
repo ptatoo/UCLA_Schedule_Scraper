@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
 
 const ServerStatus = () => {
-  const [serverStat, setServerStat] = useState(false);
+  //0 good, 1 asleep, 2 error
+  const [serverStat, setServerStat] = useState(1);
   const [___, setCount] = useState(0);
 
   async function pokeServer() {
     //fetch data from server
     try {
-      const response = await fetch(
-        "https://ucla-schedule-scraper-backend.onrender.com/"
-      );
-      setServerStat(true);
+      const response = await fetch(import.meta.env.VITE_API_URL);
+      setServerStat(0);
       if (!response.ok) {
-        throw new Error("HTTP error: ${response.status}");
+        setServerStat(1);
       }
     } catch (error) {
-      console.error("Error message: ", error);
+      setServerStat(2);
     }
   }
 
@@ -39,17 +38,24 @@ const ServerStatus = () => {
       <div className="mb-5 p-1.5 bg-blue-50 w-full flex gap-3">
         <div
           className={`${
-            serverStat ? "block" : "hidden"
+            serverStat == 0 ? "block" : "hidden"
           } bg-green-500 w-24 text-center rounded text-white font-bold`}
         >
           Server Live
         </div>
         <div
           className={`${
-            serverStat ? "hidden" : "block"
+            serverStat == 1 ? "block" : "hidden"
+          } bg-red-500 w-50 text-center rounded text-white font-bold`}
+        >
+          Server Asleep. Poking...
+        </div>
+        <div
+          className={`${
+            serverStat == 2 ? "block" : "hidden"
           } bg-red-500 w-28 text-center rounded text-white font-bold`}
         >
-          Server Asleep
+          Server Error
         </div>
       </div>
     </>

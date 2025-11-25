@@ -1,5 +1,5 @@
 import SearchApp from "./SearchApp";
-import Header from "./components/header";
+import Header from "./components/Heading";
 
 const App = () => {
   return (
