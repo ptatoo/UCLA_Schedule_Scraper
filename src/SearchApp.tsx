@@ -2,7 +2,6 @@ import Classes from "./components/Classes";
 import SearchPanel from "./components/SearchPanel/SearchPanel";
 import ServerStatus from "./components/SearchPanel/ServerStatus";
 import { useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
 
 //app function
 function SearchApp() {
@@ -77,17 +76,17 @@ function SearchApp() {
   }
 
   return (
-    <div className="mx-6 mt-3 bg-white rounded-lg shadow-md">
-      <div className={`${searchPanelVisibility ? "block" : "hidden"}  `}>
-        <SearchPanel onGoSearch={retrieveGoSearch} />
-        <div>
+    <>
+      <div className="mx-6 mt-3 bg-white rounded-lg shadow-md">
+        <div className={`${searchPanelVisibility ? "block" : "hidden"}  `}>
+          <SearchPanel onGoSearch={retrieveGoSearch} />
           <ServerStatus />
         </div>
       </div>
-      <div>
+      <div className="mx-6 mt-3 bg-white rounded-lg shadow-md p-5">
         <Classes data={sectionData} sectionPara={displayPara} />
       </div>
-    </div>
+    </>
   );
 }
 
