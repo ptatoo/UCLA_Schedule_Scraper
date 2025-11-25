@@ -1,14 +1,29 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
 import "./App.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Heading";
+import SearchApp from "./SearchApp";
+import NotifApp from "./NotifApp";
+import Home from "./Home";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
   <StrictMode>
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <App />
+      <div className="bg-gray-100 min-h-screen">
+        <BrowserRouter basename="/UCLA_Schedule_Scraper">
+          <Header />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<SearchApp />} />
+            <Route path="/notifications" element={<NotifApp />} />
+            <Route path="*" element={<p>Path not resolved</p>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </GoogleOAuthProvider>
   </StrictMode>
 );
