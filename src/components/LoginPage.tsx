@@ -10,12 +10,10 @@ function LoginPage() {
     console.log("Login Success:", decoded);
 
     // sends cred to backend through /login route
-
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/login`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ credentials }),
-      credentials: "include",
+      body: JSON.stringify({ credentials })
     });
 
     const data = await res.json();
