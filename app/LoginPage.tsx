@@ -30,7 +30,7 @@ function LoginPage() {
 
   return (
     <div>
-      {/* <GoogleLogin data-size="small" onSuccess={onSuccess} onError={onError} /> */}
+      <GoogleLogin data-size="small" onSuccess={onSuccess} onError={onError} />
     </div>
   );
 }
