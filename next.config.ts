@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     VITE_GOOGLE_CLIENT_ID:
       "454930251106-d7a2pe23cnivc8aehsehh4bkjbbvgna1.apps.googleusercontent.com",
   },
+  output: "export",
+  distDir: "dist",
+  trailingSlash: true,
 };
 
 export default nextConfig;
