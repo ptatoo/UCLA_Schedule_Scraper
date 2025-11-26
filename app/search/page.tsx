@@ -78,7 +78,7 @@ function SearchApp() {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen p-3">
+    <div className="bg-gray-100 min-h-screen p-3 text-black">
       <div className="mx-6 mt-3 bg-white rounded-lg shadow-md">
         <div className={`${searchPanelVisibility ? "block" : "hidden"}  `}>
           <SearchPanel onGoSearch={retrieveGoSearch} />

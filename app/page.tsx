@@ -3,5 +3,5 @@ import SearchApp from "./search/page";
 import NotifApp from "./notifications/page";
 
 export default function Home() {
-  return <div className="bg-gray-100 min-h-screen p-3">home</div>;
+  return <div className="text-black bg-gray-100 min-h-screen p-3">home</div>;
 }

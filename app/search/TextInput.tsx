@@ -438,6 +438,7 @@ const TextInput = ({ goSearch }: Props) => {
 
   return (
     <>
+      {/* Subject Dropdown */}
       <div className="flex flex-wrap gap-3 w-full">
         <div className="flex">
           <div className="w-10 h-8 text-right align-middle pt-1 mr-3">
@@ -476,8 +477,9 @@ const TextInput = ({ goSearch }: Props) => {
             }}
           />{" "}
         </div>
+        {/* Go Button */}
         <button
-          className="bg-white p-1.5 rounded border-gray-300 border w-8 h-8 hover:bg-gray-200 active:bg-gray-400"
+          className="bg-green-500 p-1.5 rounded-xl text-white font-bold w-8 h-8 hover:shadow-md active:bg-white active:text-black"
           onClick={goButtonClicked}
         >
           Go
