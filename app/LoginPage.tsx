@@ -15,12 +15,8 @@ function LoginPage() {
     const res = await fetch(`${process.env.VITE_API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-<<<<<<< HEAD:src/components/LoginPage.tsx
-      credentials: "include", 
-      body: JSON.stringify({ credentials })
-=======
+      credentials: "include",
       body: JSON.stringify({ credentials }),
->>>>>>> Migrating-to-nextjs:app/LoginPage.tsx
     });
 
     const data = await res.json();
